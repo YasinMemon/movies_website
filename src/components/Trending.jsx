@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import Cards from './Cards';
+import Loader from './reusable-components/Loader';
 
 function Trending() {
   const [movies, setMovies] = useState([]);
-  const [sortBy, setSortBy] = useState(""); // Initialize with an empty string
+  const [sortBy, setSortBy] = useState(""); 
+  const [loading, setloading] = useState(true);
 
   useEffect(() => {
     fetch("https://api.themoviedb.org/3/discover/movie?api_key=4a8cf5c33acedcefeb55e781e9fa5448")
       .then((res) => res.json())
-      .then((data) => setMovies(data.results))
-      .catch((err) => console.error(err));
+      .then((data) => {
+      setMovies(data.results);
+      setloading(false);
+  })
+  .catch((err) => console.error(err));
   }, []);
 
   const handleSortChange = (e) => {
     setSortBy(e.target.value);
-    // Optionally, add logic to sort/filter movies based on this value
   };
 
   return (
@@ -32,11 +36,11 @@ function Trending() {
           <option value="normal">Child</option>
         </select>
       </div>
-      <div className="moviesCards grid grid-cols-1 md:grid-cols-4 space-x-2 md:space-x-4 mx-auto">
+      {loading ? <Loader/> : <div className="moviesCards grid grid-cols-1 md:grid-cols-4 space-x-2 md:space-x-4 mx-auto">
         {movies.splice(0,16)?.map((movie) => (
           <Cards key={movie.id} movie={movie} />
         ))}
-      </div>
+      </div>}
     </div>
   );
 }
