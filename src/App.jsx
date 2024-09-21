@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import MoviePage from "./components/MoviePage";
+import Cards from "./components/Cards";
 
 export default function App() {
   return (

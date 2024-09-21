@@ -34,7 +34,7 @@ function MoviePage() {
       <p className="text-md mt-4">{description}</p>
       <hr className='my-4'/>
       <h1 className='font-bold my-4 text-4xl'>Simmilar Movies</h1>
-      {/* <Suggestion/> */}
+      <Suggestion/>
     </div>
   );
 }

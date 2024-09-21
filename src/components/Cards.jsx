@@ -17,11 +17,11 @@ function Cards({ movie }) {
   }
 
   return (
-    <div className='movie-card mb-10 mx-5 ring-1 ring-black rounded-md shadow-xl shadow-black'>
+    <div className={`movie-card mb-10 mx-5 ring-1 ring-black rounded-md shadow-xl shadow-black`}>
       {/* <Link to={`movie/${movie.id}`}>  */}
       <img 
       onClick={showMovie}
-      className="w-full h-60 md:hover:scale-110 duration-300 transition-transform cursor-pointer object-cover rounded-md"
+      className={`h-60 md:hover:scale-110 duration-300 transition-transform cursor-pointer object-cover rounded-md`}
       src={imageUrl} alt={movie.title} />
       {/* </Link> */}
       <div className="details flex justify-between">

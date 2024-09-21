@@ -12,10 +12,10 @@ function Suggestion() {
         )
     }, []);
   return (
-    <div className='flex'>
+    <div className='md:flex'>
       {movies.slice(0,4)?.map((movie) => {
         return <>
-           <Link to={movie.id}><Cards key={movie.id} movie={movie} /></Link>
+           <Cards key={movie.id} movie={movie} />
         </>
       })}
     </div>
