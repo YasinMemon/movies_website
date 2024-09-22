@@ -1,26 +1,24 @@
 import React from 'react';
-import { Link, redirect, useLocation } from 'react-router-dom';
+import { Link, redirect } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 function Cards({ movie }) {
   const navigate = useNavigate();
-  const location = useLocation();
   const imageUrl = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`; 
-  const poster = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
   const showMovie = () => {
-    navigate(`/movie/${movie.id}`, {
+    navigate(`movie/${movie.id}`, {
       state: {
         title: movie.title,
         release: movie.release_date,
         rating: movie.vote_average,
         description: movie.overview,
-        poster
      }
     })
   }
 
   return (
     <div className={`movie-card mb-10 mx-5 ring-1 ring-black rounded-md shadow-xl shadow-black`}>
+      {/* <Link to={`movie/${movie.id}`}>  */}
       <img 
       onClick={showMovie}
       className={`h-60 md:hover:scale-110 duration-300 transition-transform cursor-pointer object-cover rounded-md`}

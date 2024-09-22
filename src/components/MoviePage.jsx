@@ -13,14 +13,14 @@ function MoviePage() {
     return <div className='my-20'>Movie data not available. Please go back and select a movie.</div>;
   }
 
-  const { title, release, rating, description } = movieData;
+  const { title, release, rating, description, poster } = movieData;
 
   return (
     <div className='w-[90vw] mx-auto'>
       <video 
         className='h-[60vh] w-[90vw] mx-auto my-4 ring-1 ring-black rounded-lg'
         src={m1} 
-        poster='https://image.tmdb.org/t/p/w500//8cdWjvZQUExUUTzyp4t6EDMubfO.jpg'
+        poster={poster}
         controls
         preload='auto'
         autoPlay={false}
