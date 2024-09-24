@@ -20,22 +20,25 @@ function Cards({ movie }) {
   }
 
   return (
-    <div className={`movie-card mb-10 mx-5 ring-1 ring-black rounded-md shadow-xl shadow-black`}>
+    <div className={`movie-card mb-10 ring-1 ring-white rounded-md shadow-xl shadow-black `}>
       <img 
       onClick={showMovie}
-      className={`h-60 md:hover:scale-110 duration-300 transition-transform cursor-pointer object-cover rounded-md`}
-      src={imageUrl} alt={movie.title} />
-      {/* </Link> */}
-      <div className="details flex justify-between">
-        <div className="dateTitle ml-2">
-      <h2 className='font-bold'>{movie.title}</h2>
+      className={`h-60 md:hover:scale-110 w-full duration-300 transition-transform cursor-pointer object-cover rounded-md`}
+      src={imageUrl} alt={movie.title}
+       />
+      
+      <div className="details flex justify-between py-2">
+        <div className="dateTitle ml-3">
+      <h2 className='font-bold'>{movie.title || movie.original_name}</h2>
+
       <span>{movie.release_date}</span>
         </div>
-        <div className="rating mr-2">
-            <span className='md:pr-5'>{movie.vote_average} ⭐</span>
+        <div className="rating flex mr-1">
+            <div className='md:mx-1'>{movie.vote_average}</div>
+            <div>⭐</div>
         </div>
       </div>
-      <p className='ml-2 mt-5'>{movie.overview.slice(0,70)}...</p>
+      <p className='mx-3 mt-5 pb-3 '>{movie.overview.slice(0,70)}...</p>
     </div>
   );
 }

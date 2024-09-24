@@ -17,7 +17,7 @@ function Trending({ children, searchQueary }) {
 
 
   useEffect(() => {
-    const url = searchQueary ? `{https://api.themoviedb.org/3/search/movie?query=${searchQueary}&api_key=4a8cf5c33acedcefeb55e781e9fa5448` : "https://api.themoviedb.org/3/discover/movie?api_key=4a8cf5c33acedcefeb55e781e9fa5448"
+    const url = searchQueary ? `https://api.themoviedb.org/3/search/movie?query=${searchQueary}&api_key=4a8cf5c33acedcefeb55e781e9fa5448` : "https://api.themoviedb.org/3/discover/movie?api_key=4a8cf5c33acedcefeb55e781e9fa5448"
 
     if(handleByRating){
       url += "&sort_by=vote_average.desc";
@@ -37,24 +37,14 @@ function Trending({ children, searchQueary }) {
   };
 
   return (
-    <div className='w-[90%] mx-auto'>
+    <div className='w-[90%] mx-auto text-white bg-zinc-900'>
       <div className="container flex my-4 justify-between items-center font-bold mx-auto">
         <h1 className='trending'>{children}</h1>
         <button 
         onClick={handleRating}
-        className='font-bold bg-sky-300 px-4 py-1 rounded-xl'>Sort by Rating</button>
-        {/* <select 
-          className='bg-slate-400 px-4 rounded-lg h-10' 
-          name="sortBy" 
-          value={sortBy}
-          onChange={handleSortChange}
-        >
-          <option value="" disabled>Sort by</option>
-          <option value="adult">Adult</option>
-          <option value="normal">Child</option>
-        </select> */}
+        className='font-bold bg-sky-300 px-4 py-1 md:h-auto text-nowrap text-xs md:text-base h-10 rounded-xl'>Sort by Rating</button>
       </div>
-      {loading ? <Loader/> : <div className="moviesCards grid grid-cols-1 md:grid-cols-4 space-x-2 md:space-x-4 mx-auto">
+      {loading ? <Loader/> : <div className="moviesCards grid grid-cols-1 md:grid-cols-4 space-x-2 md:space-x-10 mx-auto">
         {movies.splice(0,16)?.map((movie) => (
           <Cards key={movie.id} movie={movie} />
         ))}

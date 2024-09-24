@@ -14,9 +14,9 @@ function Suggestion() {
   return (
     <div className='md:flex'>
       {movies.slice(0,4)?.map((movie) => {
-        return <>
+        return <div className='mx-5'>
            <Cards key={movie.id} movie={movie} />
-        </>
+        </div>
       })}
     </div>
   )

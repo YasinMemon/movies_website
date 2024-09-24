@@ -6,10 +6,14 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    /* overflow-x: hidden; */
 }
 
 body{
     overflow-x: hidden;
+    width: 100%;
+    background-color: #1a1616;
+    /* background-color: green; */
 }
 
 .sky{
@@ -21,4 +25,8 @@ body{
     font: bolder;
     font-family: monospace;
     
+}
+
+html{
+    scroll-behavior: smooth;
 }

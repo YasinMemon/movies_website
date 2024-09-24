@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import spiderman from '../assets/pictures/spiderman-4k-background-hd-wallpaper-preview.jpg'
+import CountUp from 'react-countup';
+
 
 function Welcome({ onSearch }) {
   const [searchItem, setsearchItem] = useState("");
@@ -15,23 +18,38 @@ function Welcome({ onSearch }) {
   }
   return (
     <div>
-        <div className="w-[100vw] md:bg-[url('https://imgs.search.brave.com/GRnMU8fBtQSpzMQmt7xrkLKP3ocXBFZnCCBBRm3Nnwo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9i/L2JlL1RvcF9vZl9B/dG1vc3BoZXJlLmpw/Zw')] bg-no-repeat bg-cover h-[25vh] bg-slate-500 md:h-[40vh] text-orange-900 md:text-white">
-            <h1 className=' font-bold text-2xl md:text-4xl translate-x-5 md:translate-x-32 translate-y-3 md:translate-y-20'>Welcome.</h1>
-            <p className='w-[90vw] font-bold md:text-2xl translate-x-5 md:translate-x-32  translate-y-3 md:translate-y-20'>Millions of movies, TV shows and people to discover. Explore now.</p>
-            <div className="serchBar flex justify-center md:text-center w-full translate-y-8 md:translate-y-28">
+        <div
+        className="w-[100vw] sm:overflow-x-hidden overflow-x-hidden h-[100vh] text-orange-900 md:text-white bg-no-repeat bg-cover bg-center md:bg-right-top"
+        style={{ backgroundImage: `url(${spiderman})` }}
+      >
+          <div className="serchBar flex justify-center md:text-center w-full translate-y-8 md:translate-y-10">
             <input 
-            className='w-[80vw] md:w-[70vw]  text-sm md:text-lg rounded-full bg-slate-300 pl-1 md:pl-3  md:rounded-l-full md:rounded-r-none p-1 md:p-2'
+            className='w-[80vw] md:w-[70vw] shadow-lg shadow-slate-300 ring-1 ring-white text-sm md:text-lg rounded-full bg-zinc-700 pl-1 md:pl-3  md:rounded-l-full md:rounded-r-none p-1 md:p-2'
             placeholder='Search movies, TV shows and many more' 
             type="text"
             onChange={(e) => setsearchItem(e.target.value)}  
             onKeyDown={handleKeyPress}
            />
             <button 
-            
-            className='hidden md:block  text-sm md:text-lg rounded-r-full p-1 md:p-2 w-20 md:w-32 bg-sky-500 font-bold text-white font-sans'
+            className='hidden md:block  text-sm md:text-lg rounded-r-full p-1 md:p-2 w-20 md:w-32 bg-zinc-700 border-l shadow-lg shadow-slate-300 ring-1 ring-white font-bold text-white font-sans'
             onClick={handleSearch}
             >Search</button>
             </div>
+            <h1 className='font-serif font-bold text-2xl md:text-4xl translate-x-5 md:translate-x-40 translate-y-16 md:translate-y-32 text-white'>Welcome.</h1>
+            <p className='w-[90vw] md:w-[25vw] text-white my-4 font-bold md:text-2xl translate-x-5 md:translate-x-40  translate-y-16 md:translate-y-32'>Millions of movies, TV shows and people to discover. Explore now.</p>
+            <div className="ctr mt-4 flex items-center font-bold translate-y-16 md:translate-y-36 translate-x-5 md:translate-x-40 text-4xl">
+              <div className="numb">
+            <CountUp 
+            start={0} 
+            end={160526}
+            />
+            </div>
+            <span>+</span>
+            </div>
+            <div className='font-bold translate-y-16 md:translate-y-36 translate-x-5 md:translate-x-40 ml-2'>Movies Available</div>
+            <a href="#trend">
+            <button className='translate-y-16 mt-4 md:translate-y-48 translate-x-5 md:translate-x-40 ml-2 shadow-black shadow-xl font-bold bg-orange-500 px-4 py-1 rounded-lg'>Watch Now</button>
+            </a>
         </div>
     </div>
   )
