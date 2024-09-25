@@ -23,8 +23,17 @@ body{
 .trending{
     font-size: 2rem;
     font: bolder;
-    font-family: monospace;
-    
+    font-family: monospace;  
+}
+
+/* Hide scrollbar for WebKit browsers */
+.element {
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+}
+
+.element::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
 }
 
 html{

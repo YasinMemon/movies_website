@@ -27,7 +27,7 @@ const StyledWrapper = styled.div`
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: black;
+  // background: black;
   transform: translate(-50% , -100%)  scale(0);
   animation: push_401 2s infinite linear;
 }

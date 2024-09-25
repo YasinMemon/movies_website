@@ -20,7 +20,8 @@ function Cards({ movie }) {
   }
 
   return (
-    <div className={`movie-card mb-10 ring-1 ring-white rounded-md shadow-xl shadow-black `}>
+    <div className={`movie-card shrink-0 mb-10 ring-1 ring-white rounded-md shadow-xl shadow-black `}>
+
       <img 
       onClick={showMovie}
       className={`h-60 md:hover:scale-110 w-full duration-300 transition-transform cursor-pointer object-cover rounded-md`}
